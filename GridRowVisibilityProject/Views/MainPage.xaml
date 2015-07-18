@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="GridRowVisibilityProject.Views.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    xmlns:helpers="clr-namespace:GridRowVisibilityProject.Helpers"
+    mc:Ignorable="d"
+    d:DesignHeight="400" d:DesignWidth="400">
+    <UserControl.Resources>
+        <helpers:GridVisibilityConverter x:Key="GridVisibilityConverter"/>
+        <helpers:DataContextProxy x:Key="DataProxy" DataSource="{Binding DataListModified}"/>
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot" Background="White">
+        <StackPanel Orientation="Vertical">
+            <TextBlock Margin="0 10,0 10" Text="Grid with all columns having data"/>
+            <sdk:DataGrid AutoGenerateColumns="False" ItemsSource="{Binding DataList, Mode=OneTime}">
+                <sdk:DataGrid.Columns>
+                    <sdk:DataGridTextColumn FontStyle="Italic"  Header="ID" Binding="{Binding Id}"/>
+                    <sdk:DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                    <sdk:DataGridTextColumn Header="Profession" Binding="{Binding Profession}"/>
+                    <sdk:DataGridTextColumn Header="Hobbies" Binding="{Binding Hobbies}"/>
+                    <sdk:DataGridTextColumn Header="Phone number" Binding="{Binding Phone}"/>
+                </sdk:DataGrid.Columns>
+            </sdk:DataGrid>
+            <TextBlock Margin="0 10,0 10" Text="Same grid with Hobbies column all empty"/>
+            <sdk:DataGrid AutoGenerateColumns="False" ItemsSource="{Binding DataListModified, Mode=OneTime}">
+                <sdk:DataGrid.Columns>
+                    <helpers:DataGridTextColumnExtended FontStyle="Italic"  Header="ID" Binding="{Binding Id}"/>
+                    <helpers:DataGridTextColumnExtended Header="Name" Binding="{Binding Name}"/>
+                    <helpers:DataGridTextColumnExtended Header="Profession" Binding="{Binding Profession}"/>
+                    <helpers:DataGridTextColumnExtended 
+                        Header="Hobbies" 
+                        VisibiltyBinding="{Binding Source={StaticResource DataProxy},Path=DataSource,Converter={StaticResource GridVisibilityConverter}, ConverterParameter='Hobbies'}"                                
+                        Binding="{Binding Hobbies}"/>
+                    <helpers:DataGridTextColumnExtended Header="Phone number" Binding="{Binding Phone}"/>
+                </sdk:DataGrid.Columns>
+            </sdk:DataGrid>
+        </StackPanel>
+    </Grid>
+</UserControl>
