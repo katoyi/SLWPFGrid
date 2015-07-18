@@ -33,7 +33,10 @@
                         Header="Hobbies" 
                         VisibiltyBinding="{Binding Source={StaticResource DataProxy},Path=DataSource,Converter={StaticResource GridVisibilityConverter}, ConverterParameter='Hobbies'}"                                
                         Binding="{Binding Hobbies}"/>
-                    <helpers:DataGridTextColumnExtended Header="Phone number" Binding="{Binding Phone}"/>
+                    <helpers:DataGridTextColumnExtended 
+                        Header="Phone number" 
+                        VisibiltyBinding="{Binding Source={StaticResource DataProxy},Path=DataSource,Converter={StaticResource GridVisibilityConverter}, ConverterParameter='Phone'}"                                
+                        Binding="{Binding Phone}"/>
                 </sdk:DataGrid.Columns>
             </sdk:DataGrid>
         </StackPanel>
