@@ -9,7 +9,7 @@ using GridRowVisibilityProject.Model;
 
 namespace GridRowVisibilityProject.Helpers
 {
-    public class GridVisibilityConverter : IValueConverter
+    public class GridRowVisibilityConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

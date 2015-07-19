@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     d:DesignHeight="400" d:DesignWidth="400">
     <UserControl.Resources>
-        <helpers:GridVisibilityConverter x:Key="GridVisibilityConverter"/>
+        <helpers:GridRowVisibilityConverter x:Key="GridRowVisibilityConverter"/>
         <helpers:DataContextProxy x:Key="DataProxy" DataSource="{Binding DataListModified}"/>
     </UserControl.Resources>
     <Grid x:Name="LayoutRoot" Background="White">
@@ -31,11 +31,11 @@
                     <helpers:DataGridTextColumnExtended Header="Profession" Binding="{Binding Profession}"/>
                     <helpers:DataGridTextColumnExtended 
                         Header="Hobbies" 
-                        VisibiltyBinding="{Binding Source={StaticResource DataProxy},Path=DataSource,Converter={StaticResource GridVisibilityConverter}, ConverterParameter='Hobbies'}"                                
+                        VisibiltyBinding="{Binding Source={StaticResource DataProxy},Path=DataSource,Converter={StaticResource GridRowVisibilityConverter}, ConverterParameter='Hobbies'}"                                
                         Binding="{Binding Hobbies}"/>
                     <helpers:DataGridTextColumnExtended 
                         Header="Phone number" 
-                        VisibiltyBinding="{Binding Source={StaticResource DataProxy},Path=DataSource,Converter={StaticResource GridVisibilityConverter}, ConverterParameter='Phone'}"                                
+                        VisibiltyBinding="{Binding Source={StaticResource DataProxy},Path=DataSource,Converter={StaticResource GridRowVisibilityConverter}, ConverterParameter='Phone'}"                                
                         Binding="{Binding Phone}"/>
                 </sdk:DataGrid.Columns>
             </sdk:DataGrid>

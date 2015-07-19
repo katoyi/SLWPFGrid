@@ -81,7 +81,7 @@
     </Compile>
     <Compile Include="Helpers\DataContextProxy.cs" />
     <Compile Include="Helpers\DataGridTextColumnExtended.cs" />
-    <Compile Include="Helpers\GridVisibilityConverter.cs" />
+    <Compile Include="Helpers\GridRowVisibilityConverter.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\AppSampleViewModel.cs" />
